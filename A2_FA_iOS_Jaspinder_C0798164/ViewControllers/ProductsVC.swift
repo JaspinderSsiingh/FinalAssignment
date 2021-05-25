@@ -43,7 +43,7 @@ class ProductsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         getData()
     }
     
-    
+    // Show Type
     @IBAction func btnActnShowType(_ sender: Any) {
         boolProducts = !boolProducts
         btnProduct.setTitle(boolProducts ? "Show Providers" : "Show Products", for: .normal)
@@ -72,6 +72,8 @@ class ProductsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return appDelegate.persistentContainer.viewContext
     }
     
+    
+    // Fetch Data
     func getData() {
         let query = NSFetchRequest<NSFetchRequestResult>(entityName: "Products")
         
@@ -128,15 +130,17 @@ class ProductsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    
+    // Add Product
     @objc func addProduct(_ sender: UIBarButtonItem) {
         let vc = self.storyboard?.instantiateViewController(identifier: "AddProductVC") as! AddProductVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return boolProducts ? arrayProduct.count : arrayProvider.count

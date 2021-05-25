@@ -37,12 +37,14 @@ class ProductDetailsVC: UIViewController {
         return appDelegate.persistentContainer.viewContext
     }
     
+    // Edit Action
     @IBAction func btnActionEdit(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(identifier: "AddProductVC") as! AddProductVC
         vc.productDetails = productDetail
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // Delete Action
     @IBAction func btnActnDelete(_ sender: Any) {
         AlertControl.shared.showAlert("Alert!", message: "Do you want to delete this product?", buttons: ["Yes", "No"]) { [self] index in
             if index == 0 {

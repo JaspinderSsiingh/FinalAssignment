@@ -32,6 +32,8 @@ class ProviderProductsVC: UIViewController, UITableViewDataSource, UITableViewDe
         return appDelegate.persistentContainer.viewContext
     }
     
+    
+    // Fetch Data
     func getData() {
         let query = NSFetchRequest<NSFetchRequestResult>(entityName: "Products")
 

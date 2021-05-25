@@ -39,6 +39,8 @@ class AddProductVC: UIViewController {
         return appDelegate.persistentContainer.viewContext
     }
     
+    
+    // Save Data
     func saveData() {
         let rowObj = NSEntityDescription.insertNewObject(forEntityName: "Products", into: getContext())
         rowObj.setValue(txtFldProductId.text!, forKey: "productId")
@@ -59,6 +61,7 @@ class AddProductVC: UIViewController {
         }
     }
     
+    // Update Data
     func updateData() {
         let query = NSFetchRequest<NSFetchRequestResult>(entityName: "Products")
        // query.predicate = NSPredicate(format: "productId = %@", productDetail.productId)
@@ -94,6 +97,8 @@ class AddProductVC: UIViewController {
         }
     }
     
+    
+    // Button Save Action
     @IBAction func btnActnSave(_ sender: Any) {
         var boolSave = false
         var strAlert = ""
